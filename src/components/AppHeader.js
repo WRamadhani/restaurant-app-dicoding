@@ -1,7 +1,7 @@
 class AppHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-            <h1 class="header__title"><a href="#">Resto <span style="color: var(--secondary-bg-color);">Hub</span></a></h1>
+            <h1 class="header__title"><a class="header__title__link" href="#">Resto <span style="color: var(--secondary-bg-color);">Hub</span></a></h1>
             <a href="#" title="hamburger-menu" class="icon__menu--anchor">
             <svg class="icon__menu--toggle" viewBox="0 0 60 30">
                 <g class="icon__group">

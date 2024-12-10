@@ -21,7 +21,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resto = await Restaurant.getRestaurant(url.id);
-    console.log(resto);
+    console.log(`${window.location.hash.slice(1)}`);
     const mainContent = document.querySelector('#mainContent');
     skipContent.init(mainContent);
     if (typeof resto == 'object') {

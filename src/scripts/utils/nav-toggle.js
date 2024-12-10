@@ -5,12 +5,16 @@ const navToggle = {
       event.preventDefault();
       this._toggleDrawer(event, drawer);
     });
-    // const link = document.querySelectorAll('.header__nav__link');
-    // link.forEach((link) => {
-    //   link.addEventListener('click', (event) => {
-    //     this._toggleDrawer(event, drawer);
-    //   });
-    // });
+    const link = document.querySelectorAll('.header__nav__link');
+    link.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const iconSwap = document.querySelector('.icon__group');
+
+        drawer.classList.toggle('header__nav--open');
+        iconSwap.classList.toggle('icon__group--swap');
+        document.querySelector('body').classList.remove('hideoverflow');
+      });
+    });
     // link.addEventListener('click', (event) => {
     //   this._toggleDrawer(event, drawer);
     // });

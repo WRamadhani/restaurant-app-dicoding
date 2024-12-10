@@ -18,7 +18,7 @@ const RestaurantList = {
 
   async afterRender() {
     const mainContent = document.querySelector('#mainContent');
-    skipContent.init(mainContent);
+    // skipContent.init(mainContent);
     const resto = await Restaurant.getAllRestaurant();
     if (typeof resto == 'object') {
       addElement.init({ _content: mainContent, _element: 'resto-list', _class: 'resto__list', _data: resto.restaurants });

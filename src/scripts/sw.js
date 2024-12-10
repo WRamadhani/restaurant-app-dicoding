@@ -20,7 +20,6 @@ const therestoApi = new Route(
 // );
 
 registerRoute(therestoApi);
-registerRoute(themoviedbImageApi);
 
 self.addEventListener('install', () => {
   console.log('Service Worker: Installed');
