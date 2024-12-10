@@ -1,48 +1,35 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/reset.css';
-import '../components/AppHeader';
-import '../components/HeroElement';
-import '../components/RestoList';
-import '../components/RestoItem';
+import '../components/AppHeader.js';
+import '../components/HeroElement.js';
+import '../components/RestoList.js';
+import '../components/RestoItem.js';
+import '../components/ReviewResto.js';
+import swRegister from './utils/sw-register.js';
+import WebSocketInitiator from './utils/websocket-initiator.js';
+import FooterToolsInitiator from './utils/footer-initiator.js';
+import CONFIG from './globals/config.js';
+import App from './views/app.js';
 
-/** Start Navbar icon swap and Navbar open */
-const navBarToggle = document.querySelector('.icon__menu--anchor');
-const navList = document.querySelector('.header__nav__list');
-const iconSwap = document.querySelector('.icon__group');
-const body = document.querySelector('body');
-
-navBarToggle.addEventListener('click', (event) => {
-  event.stopPropagation();
-  navList.classList.toggle('header__nav--open');
-  iconSwap.classList.toggle('icon__group--swap');
-  body.classList.toggle('hideoverflow');
+const app = new App({
+  button: document.querySelector('.icon__menu--anchor'),
+  drawer: document.querySelector('.header__nav__list'),
+  content: document.querySelector('#main'),
 });
-/** End Navbar */
 
-/** Start Skip to main content anchor */
-const header = document.querySelector('header');
-const headerHeight = header.offsetHeight;
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-const anchor = document.querySelector('.skip__content');
-anchor.addEventListener(('click'), (e) => {
-  e.preventDefault();
-  const mainContent = document.querySelector('#mainContent');
-  window.scrollTo({
-    top: mainContent.getBoundingClientRect().top - headerHeight,
-    behavior: 'smooth'
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
+  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+  FooterToolsInitiator.init({
+    subscribeButton: document.querySelector('#subscribePushNotification'),
+    unsubscribeButton: document.querySelector('#unsubscribePushNotification'),
   });
 });
-
-const elmx = document.querySelector('.hero');
-
-function checkVisible(elm) {
-  const rect = elm.getBoundingClientRect();
-  const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-};
-
-checkVisible(elmx);
-/* End Skip to main content */
 
 console.log('Hello Coders! :)');

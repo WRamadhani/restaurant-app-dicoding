@@ -8,6 +8,7 @@ import '../components/RestoItem.js';
 import '../components/ReviewResto.js';
 import swRegister from './utils/sw-register.js';
 import WebSocketInitiator from './utils/websocket-initiator.js';
+import FooterToolsInitiator from './utils/footer-initiator.js';
 import CONFIG from './globals/config.js';
 import App from './views/app.js';
 
@@ -25,6 +26,10 @@ window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
   WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+  FooterToolsInitiator.init({
+    subscribeButton: document.querySelector('#subscribePushNotification'),
+    unsubscribeButton: document.querySelector('#unsubscribePushNotification'),
+  });
 });
 
 console.log('Hello Coders! :)');

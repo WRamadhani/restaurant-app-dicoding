@@ -1,7 +1,7 @@
 class AppHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-            <h1 class="header__title"><a href="#">Resto Hub</a></h1>
+            <h1 class="header__title"><a href="#">Resto <span style="color: var(--secondary-bg-color);">Hub</span></a></h1>
             <a href="#" title="hamburger-menu" class="icon__menu--anchor">
             <svg class="icon__menu--toggle" viewBox="0 0 60 30">
                 <g class="icon__group">
@@ -21,7 +21,7 @@ class AppHeader extends HTMLElement {
             <nav class="header__nav">
                 <ul class="header__nav__list">
                     <li><a class="header__nav__link" href="#">Home</a></li>
-                    <li><a class="header__nav__link" href="#">Favorite</a></li>
+                    <li><a class="header__nav__link" href="#/favorite">Favorite</a></li>
                     <li><a class="header__nav__link" href="https://linkedin.com/in/wahyu-ramadhani" target="_blank">About Us</a>
                     </li>
                 </ul>

@@ -74,8 +74,10 @@ class RestoItem extends HTMLElement {
         </article>
       </section>
       <section class="reviews">
-        <form class="reviews__form">
-
+        <form id="addReviewForm" class="reviews__form">
+          <input type="text" id="name" name="name" placeholder="Masukkan nama kamu" required />
+          <textarea id="review" name="review" placeholder="Masukkan review kamu" required></textarea>
+          <button type="submit">Submit</button>
         </form>
         <section id="reviewList">
 

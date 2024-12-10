@@ -3,8 +3,13 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="../public/icon.png">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+      rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#00c896">
   <title>Resto Hub</title>
 </head>
 
@@ -13,14 +18,16 @@
   <header class="header">
     <app-header class="header__app"></app-header>
   </header>
-  <main class="main">
-    <hero-element class="hero"></hero-element>
-    <section id="mainContent" class="main__content">
-      <h2>Explore Restaurant</h2>
-      <resto-list class="resto__list"></resto-list>
-    </section>
+  <main class="main" id="main">
+    
   </main>
-  <footer class="footer">Copyright © 2024 - Resto Hub</footer>
+  <footer class="footer">
+    <!-- <div id="footerTools">
+      <button id="subscribePushNotification" class="footer__button">Subscribe Push Notification</button>
+      <button id="unsubscribePushNotification" class="footer__button">Unsubscribe Push Notification</button>
+    </div> -->
+    Copyright © 2024 - Resto Hub
+  </footer>
 </body>
 
 </html>
