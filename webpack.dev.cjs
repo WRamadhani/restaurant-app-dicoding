@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
-const common = require('./webpack.common');
+const common = require('./webpack.common.cjs');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -12,7 +12,7 @@ module.exports = merge(common, {
     client: {
       overlay: {
         errors: false,
-        warnings: true,
+        warnings: false,
       },
     },
   },

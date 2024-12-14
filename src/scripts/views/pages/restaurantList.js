@@ -12,6 +12,21 @@ const RestaurantList = {
                 <div></div>
               </div>
             </div>
+            <div style="margin: 2em 15dvw;">
+              <div class="skeleton__detail">
+                <div></div>
+              </div>
+            </div>
+            <div style="margin: 2em 15dvw;">
+              <div class="skeleton__detail">
+                <div></div>
+              </div>
+            </div>
+            <div style="margin: 2em 15dvw;">
+              <div class="skeleton__detail">
+                <div></div>
+              </div>
+            </div>
         </section>
       `;
   },
@@ -23,7 +38,7 @@ const RestaurantList = {
     if (typeof resto == 'object') {
       addElement.init({ _content: mainContent, _element: 'resto-list', _class: 'resto__list', _data: resto.restaurants });
     } else {
-      mainContent.innerHTML = 'we are Offline right now';
+      mainContent.innerHTML = '<div class="not__found">We can\'t find a restaurant</div>';
     }
   },
 };

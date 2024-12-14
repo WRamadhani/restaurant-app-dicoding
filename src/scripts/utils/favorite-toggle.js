@@ -4,14 +4,16 @@ const favoriteToggle = {
   async init({ favoriteButtonContainer, resto }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._resto = resto;
-
+    if (!resto) {
+      throw new Error('Restaurant data must be provided');
+    }
     await this._renderButton();
   },
 
   async _renderButton() {
     const { id } = this._resto;
     // console.log(this._resto);
-    this._renderLike();
+    //this._renderLike();
     if (await this._isRestoExist(id)) {
       this._renderLiked();
     } else {

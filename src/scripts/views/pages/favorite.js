@@ -17,14 +17,14 @@ const Favorite = {
   },
 
   async afterRender() {
-    // const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resto = await FavoriteRestaurant.getAllRestaurants();
+    console.log(resto);
     const mainContent = document.querySelector('#mainContent');
     skipContent.init(mainContent);
-    if (typeof resto == 'object') {
+    if (resto.length > 0) {
       addElement.init({ _content: mainContent, _element: 'resto-list', _class: 'resto__list', _data: resto });
     } else {
-      mainContent.innerHTML = 'we are Offline right now';
+      mainContent.innerHTML = '<div class="not__found">We can\'t find a restaurant</div>';
     }
   },
 };

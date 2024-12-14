@@ -32,7 +32,7 @@ class RestoItem extends HTMLElement {
             <picture>
               <source media="(min-width: 768px)" srcset="https://restaurant-api.dicoding.dev/images/medium/${this._data.restaurant.pictureId}">
               <source media="(min-width: 1024px)" srcset="https://restaurant-api.dicoding.dev/images/large/${this._data.restaurant.pictureId}">
-              <img src="https://restaurant-api.dicoding.dev/images/small/${this._data.restaurant.pictureId}" width="100%" alt="Gambar Resto ${this._data.restaurant.name}" />
+              <img loading="lazy" src="https://restaurant-api.dicoding.dev/images/small/${this._data.restaurant.pictureId}" width="100%" alt="Gambar Resto ${this._data.restaurant.name}" />
             </picture>
             <button type="button" class="resto--fav-button">
               

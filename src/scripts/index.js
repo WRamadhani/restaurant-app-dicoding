@@ -25,11 +25,6 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
-  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
-  FooterToolsInitiator.init({
-    subscribeButton: document.querySelector('#subscribePushNotification'),
-    unsubscribeButton: document.querySelector('#unsubscribePushNotification'),
-  });
 });
 
 console.log('Hello Coders! :)');

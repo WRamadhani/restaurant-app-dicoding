@@ -21,14 +21,13 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resto = await Restaurant.getRestaurant(url.id);
-    console.log(`${window.location.hash.slice(1)}`);
     const mainContent = document.querySelector('#mainContent');
     skipContent.init(mainContent);
     if (typeof resto == 'object') {
       addElement.init({ _content: mainContent, _element: 'resto-item', _class: 'resto__detail', _data: resto });
       const reviewList = document.querySelector('#reviewList');
       const favoriteButton = document.querySelector('.resto--fav-button');
-      favoriteToggle.init({ favoriteButtonContainer: favoriteButton, resto: resto.restaurant });
+      await favoriteToggle.init({ favoriteButtonContainer: favoriteButton, resto: resto.restaurant });
       reviewElement.init({ content: reviewList, data: resto.restaurant });
       const reviewForm = document.querySelector('#addReviewForm');
       const reviewName = document.querySelector('#name');
@@ -45,7 +44,7 @@ const Detail = {
         );
       });
     } else {
-      mainContent.innerHTML = 'we are Offline right now';
+      mainContent.innerHTML = '<div class="not__found">We can\'t find a restaurant</div>';
     }
   },
 };
